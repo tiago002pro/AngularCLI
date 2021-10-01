@@ -1,0 +1,29 @@
+<div class="menu-btn" (click)="SeeMenu()">
+    <i class="fas fa-bars"></i>
+</div>
+<div [ngClass]="showMenu == true ? 'side-bar active' : 'side-bar'">
+    <div class="close-btn" (click)="SeeMenu()">
+        <i class="fas fa-times"></i>X
+    </div>
+    <div class="menu">
+        <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard</a></div>
+        <div class="item">
+            <a class="sub-btn" (click)="dropDow1()"><i class="fas fa-plus-circle"></i>Cadastros<i [ngClass]="showdropDowMenu1 == true ? 'fas fa-angle-right dropdown rotate' :  'fas fa-angle-right dropdown'"></i></a>
+            <div [ngClass]="showdropDowMenu1 == true ? 'sub-menu active' : 'sub-menu'">
+                <a [routerLink]="['/person']" class="sub-item">Clientes</a>
+                <a ui-sref="app.person-list({rule: 'Fornecedores'})" class="sub-item">Fornecedores</a>
+                <a ui-sref="app.person-list({rule: 'Funcionários'})" class="sub-item">Funcionários</a>
+            </div>
+        </div>
+        <div class="item">
+            <a class="sub-btn" (click)="dropDow2()"><i class="fas fa-donate"></i>Financeiro<i [ngClass]="showdropDowMenu1 == true ? 'fas fa-angle-right dropdown rotate' :  'fas fa-angle-right dropdown'"></i></a>
+            <div [ngClass]="showdropDowMenu2 == true ? 'sub-menu active' : 'sub-menu'">
+                <a class="sub-item">Carteira</a>
+                <a class="sub-item">Contas a pagar</a>
+                <a class="sub-item">Contas a receber</a>
+            </div>
+        </div>
+        <div class="item"><a ui-sref="app.kanban()"><i class="fas fa-th"></i>Kanban</a></div>
+        <div class="item"><a><i class="fas fa-chart-line"></i>Relatórios</a></div>
+    </div>
+</div>
